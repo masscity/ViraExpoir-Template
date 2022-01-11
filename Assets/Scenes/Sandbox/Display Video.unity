@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114179375918869224, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: autoPlayOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114179375918869224, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: thumbnailObject
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114179375918869224, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: showThumbnailBeforeVideoLoad
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114649882554807322, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: m_Sprite

@@ -79,6 +79,7 @@ namespace LightShaft.Scripts
         protected bool prepareVideoToPlayLater = false;
         [Space]
         public bool showThumbnailBeforeVideoLoad = false;
+        public bool showThumbnailBeforePlay = true;
         [DrawIf("showThumbnailBeforeVideoLoad", true)]
         public Renderer thumbnailObject;
         protected string thumbnailVideoID;
@@ -505,6 +506,10 @@ namespace LightShaft.Scripts
             else
                 lowRes = false;
 
+            if (showThumbnailBeforePlay)
+            {
+                ShowThumbnailBeforePlay(youtubeUrl);
+            }
         }
 
         public void DisableThumbnailObject()
@@ -534,6 +539,20 @@ namespace LightShaft.Scripts
             EnableThumbnailObject();
             Texture2D thumb = DownloadHandlerTexture.GetContent(request);
             thumbnailObject.material.mainTexture = thumb;
+        }
+
+        protected void ShowThumbnailBeforePlay(string id)
+        {
+            if (id == "none")
+            {
+                return;
+            }
+            else
+            {
+                id = CheckVideoUrlAndExtractThevideoId(id);
+                string tempId = id.Replace("https://youtube.com/watch?v=", "");
+                StartCoroutine(DownloadThumbnail(tempId));
+            }
         }
 
         //double lastTimePlayed = Mathf.Infinity;
@@ -859,7 +878,8 @@ namespace LightShaft.Scripts
             }
             return "18";
         }
-        
+
+
         
         protected void PlayYoutubeVideo(string _videoId)
         {
