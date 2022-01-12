@@ -24,7 +24,7 @@ public class OpenNewTabUrls : MonoBehaviour
         {
             downloadHelper = GetComponent<DownloadHelper>();
 
-            downloadHelper.Get(csvUrl, (string error) =>
+            downloadHelper.GetCsvData(csvUrl, (string error) =>
             {
                 Debug.Log("ERROR: " + error);
             }, (string text) =>

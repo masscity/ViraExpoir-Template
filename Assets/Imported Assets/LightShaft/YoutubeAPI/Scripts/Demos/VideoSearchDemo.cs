@@ -15,7 +15,7 @@ public class VideoSearchDemo : MonoBehaviour {
     public GameObject mainUI;
 
     void Start () {
-        //Get the api component
+        //GetCsvData the api component
         youtubeapi = GameObject.FindObjectOfType<YoutubeAPIManager>();
         if (youtubeapi == null)
         {

@@ -13,7 +13,7 @@ public class PlaylistDemo : MonoBehaviour {
 
     void Start()
     {
-        //Get the api component
+        //GetCsvData the api component
         youtubeapi = GameObject.FindObjectOfType<YoutubeAPIManager>();
         if (youtubeapi == null)
         {

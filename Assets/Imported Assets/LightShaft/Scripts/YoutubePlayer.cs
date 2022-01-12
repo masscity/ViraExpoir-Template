@@ -38,7 +38,7 @@ namespace LightShaft.Scripts
             }
         }
 
-        ///<summary>Get the video title, but it need to be loaded first.</summary>
+        ///<summary>GetCsvData the video title, but it need to be loaded first.</summary>
         public string GetVideoTitle()
         {
             return videoTitle;

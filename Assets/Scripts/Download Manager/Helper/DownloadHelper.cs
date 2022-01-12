@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class DownloadHelper : MonoBehaviour
 {
-    public void Get(string url, Action<string> onError, Action<string> onSuccess)
+    public void GetCsvData(string url, Action<string> onError, Action<string> onSuccess)
     {
         StartCoroutine(CoroutineGetText(url, onError, onSuccess));
     }

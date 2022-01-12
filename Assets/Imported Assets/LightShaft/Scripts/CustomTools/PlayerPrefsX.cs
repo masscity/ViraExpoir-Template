@@ -206,7 +206,7 @@ public class PlayerPrefsX
             var bytes2 = new byte[bytes.Length - 5];
             System.Array.Copy(bytes, 5, bytes2, 0, bytes2.Length);
             var bits = new BitArray(bytes2);
-            // Get the number of entries from the first 4 bytes after the identifier and resize the BitArray to that length, then convert it to a boolean array
+            // GetCsvData the number of entries from the first 4 bytes after the identifier and resize the BitArray to that length, then convert it to a boolean array
             bits.Length = ConvertBytesToInt32(bytes);
             var boolArray = new bool[bits.Count];
             bits.CopyTo(boolArray, 0);

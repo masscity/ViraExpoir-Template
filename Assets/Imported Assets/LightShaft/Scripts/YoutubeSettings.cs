@@ -541,7 +541,7 @@ namespace LightShaft.Scripts
             thumbnailObject.material.mainTexture = thumb;
         }
 
-        protected void ShowThumbnailBeforePlay(string id)
+        public void ShowThumbnailBeforePlay(string id)
         {
             if (id == "none")
             {
@@ -559,7 +559,7 @@ namespace LightShaft.Scripts
 
         void FixedUpdate()
         {
-            if (!loadYoutubeUrlsOnly)
+            if (!loadYoutubeUrlsOnly && !autoPlayOnStart)
             {
                  //buffering detect 
                  // if (videoPlayer.isPlaying && (Time.frameCount % (int)(videoPlayer.frameRate + 1)) == 0)
@@ -583,8 +583,8 @@ namespace LightShaft.Scripts
                         HideLoading();
                     else
                     {
-                        if (!pauseCalled && !prepareVideoToPlayLater)
-                            ShowLoading();
+                        //if (!pauseCalled && !prepareVideoToPlayLater)
+                            //ShowLoading();
                     }
                  }
             }
@@ -878,9 +878,11 @@ namespace LightShaft.Scripts
             }
             return "18";
         }
+        public void PlayYoutubeVideoButton()
+        {
+            PlayYoutubeVideo(youtubeUrl);
+        }
 
-
-        
         protected void PlayYoutubeVideo(string _videoId)
         {
             if (videoQuality == YoutubeVideoQuality.STANDARD)
@@ -900,7 +902,7 @@ namespace LightShaft.Scripts
                     TryToLoadThumbnailBeforeOpenVideo(_videoId);
                 youtubeUrlReady = false;
                 //Show loading
-                ShowLoading();
+                //ShowLoading();
 
                 youtubeUrl = _videoId;
                 //loading for fist time, so it's not a retry
@@ -1032,7 +1034,7 @@ namespace LightShaft.Scripts
                 bool needDecryption = false;
                 string _temporaryAudio = "", _temporaryVideo = "", _tempHtmlPlayerVersion = "";
                 videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
-                //Get the video with audio first
+                //GetCsvData the video with audio first
                 videoInfos.Reverse();
 
 
@@ -1078,7 +1080,7 @@ namespace LightShaft.Scripts
 
                 bool foundVideo = false;
                 videoInfos.Reverse();
-                //Get the high quality video
+                //GetCsvData the high quality video
 
 
                 foreach (VideoInfo info in videoInfos)
@@ -1627,7 +1629,7 @@ namespace LightShaft.Scripts
                         Debug.Log("Youtube Retrying...:" + lastTryVideoId);
                     logTest = "retry";
                     isRetry = true;
-                    ShowLoading();
+                    //ShowLoading();
                     youtubeUrl = lastTryVideoId;
                     PlayYoutubeVideo(youtubeUrl);
                 }
@@ -1640,7 +1642,7 @@ namespace LightShaft.Scripts
                     Debug.Log("Youtube Retrying...:" + lastTryVideoId);
                 logTest = "retry";
                 isRetry = true;
-                ShowLoading();
+                //ShowLoading();
                 youtubeUrl = lastTryVideoId;
                 PlayYoutubeVideo(youtubeUrl);
             }
