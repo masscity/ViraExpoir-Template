@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114179375918869224, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: autoPlayOnStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114179375918869224, guid: 5d410f561f4a06c4f93067d94dc545ce, type: 3}
       propertyPath: thumbnailObject
