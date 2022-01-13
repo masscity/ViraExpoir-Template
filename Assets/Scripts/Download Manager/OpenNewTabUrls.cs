@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -13,10 +14,7 @@ public class OpenNewTabUrls : MonoBehaviour
     [SerializeField, TextArea(3, 4)] string csvUrl;
     [SerializeField] List<UrlsReceived> listOfLink;
     [SerializeField] Button[] buttons;
-    [SerializeField] DownloadHelper downloadHelper;
-
-    [DrawIf("isChangeable", false)]
-    [Header("Not Changeable"), Space(5), SerializeField] string url = "";
+    private DownloadHelper downloadHelper;
 
     private void Awake()
     {
@@ -40,7 +38,7 @@ public class OpenNewTabUrls : MonoBehaviour
                         if (buttons[j2].gameObject.name == listOfLink[i2].id)
                         {
                             buttons[j2].onClick.AddListener(delegate { OpenDefaultNewtab(listOfLink[i2].url); });
-                            Debug.Log("url: " + url + " | to button: " + buttons[j2].gameObject.name);
+                            //Debug.Log("url: " + url + " | to button: " + buttons[j2].gameObject.name);
                         }
                     }
                 }
@@ -51,6 +49,10 @@ public class OpenNewTabUrls : MonoBehaviour
 
     public void OpenDefaultNewtab(string url)
     {
+        if (url is null)
+        {
+            throw new ArgumentNullException(nameof(url));
+        }
 #if !UNITY_EDITOR
 		OpenNewTab(url);
 #endif

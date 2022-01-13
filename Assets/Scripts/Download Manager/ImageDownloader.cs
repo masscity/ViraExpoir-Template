@@ -8,7 +8,7 @@ public class ImageDownloader : MonoBehaviour
 {
     [SerializeField, TextArea(3, 4)] string csvUrl;
     [SerializeField] Image targetImage;
-    [SerializeField] DownloadHelper downloadHelper;
+    private DownloadHelper downloadHelper;
 
     [SerializeField] List<UrlsReceived> listOfLink;
 
